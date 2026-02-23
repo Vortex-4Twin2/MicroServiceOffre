@@ -1,6 +1,8 @@
 package org.example.microservicedouaa;
+
 import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.*;
+
 import java.time.LocalDate;
 
 
@@ -27,16 +29,20 @@ public class Offre {
     @Enumerated(EnumType.STRING)
     private StatutOffre statut;
 
+    private Long productId;
+
+
     public Offre() {
     }
 
-    public Offre( String nomOffre, TypeOffre typeOffre, Double valeurReduction, LocalDate dateDebut, LocalDate dateFin, StatutOffre statut) {
+    public Offre(String nomOffre, TypeOffre typeOffre, Double valeurReduction, LocalDate dateDebut, LocalDate dateFin, StatutOffre statut, Long productId) {
         this.nomOffre = nomOffre;
         this.typeOffre = typeOffre;
         this.valeurReduction = valeurReduction;
         this.dateDebut = dateDebut;
         this.dateFin = dateFin;
         this.statut = statut;
+        this.productId = productId;
     }
 
     public StatutOffre getStatut() {
@@ -87,11 +93,20 @@ public class Offre {
         this.nomOffre = nomOffre;
     }
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
+
+    public Long getProductId() {
+        return productId;
+    }
+
+    public void setProductId(Long productId) {
+        this.productId = productId;
+    }
+
 }

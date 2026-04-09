@@ -26,8 +26,11 @@ public class OffreController {
     }
 
     @GetMapping("/products/search")
-    public List<Produit> getProductsByCategory(@RequestParam String category){
-        return serviceOffre.getProductsByCategory(category);
+    public List<Produit> getProductsByCategory(@RequestParam String category){ return serviceOffre.getProductsByCategory(category); }
+
+    @GetMapping("/products/categories")
+    public List<String> getAllCategories(){
+        return serviceOffre.getAllCategories();
     }
 
     @GetMapping
@@ -62,7 +65,12 @@ public class OffreController {
     }
 
     @PostMapping("/categorie/{category}")
-    public List<Offre> addOffreCategorie(@PathVariable String category, @RequestBody Offre offre) {
+    public Offre addOffreCategorie(@PathVariable String category, @RequestBody Offre offre) {
         return serviceOffre.createOffreCategorie(category, offre);
+    }
+
+    @GetMapping("/best/{productId}")
+    public Offre getBestOffreForProduct(@PathVariable Long productId) {
+        return serviceOffre.getBestOffreForProduct(productId);
     }
 }

@@ -30,6 +30,9 @@ public class Offre {
     private StatutOffre statut;
 
     private Long productId;
+    private String categoryName;
+
+    private Integer priorite = 0;
 
 
     public Offre() {
@@ -43,6 +46,18 @@ public class Offre {
         this.dateFin = dateFin;
         this.statut = statut;
         this.productId = productId;
+        this.priorite = 0;
+    }
+
+    public Offre(String nomOffre, TypeOffre typeOffre, Double valeurReduction, LocalDate dateDebut, LocalDate dateFin, StatutOffre statut, Long productId, Integer priorite) {
+        this.nomOffre = nomOffre;
+        this.typeOffre = typeOffre;
+        this.valeurReduction = valeurReduction;
+        this.dateDebut = dateDebut;
+        this.dateFin = dateFin;
+        this.statut = statut;
+        this.productId = productId;
+        this.priorite = (priorite != null) ? priorite : 0;
     }
 
     public StatutOffre getStatut() {
@@ -109,4 +124,19 @@ public class Offre {
         this.productId = productId;
     }
 
+    public String getCategoryName() {
+        return categoryName;
+    }
+
+    public void setCategoryName(String categoryName) {
+        this.categoryName = categoryName;
+    }
+
+    public Integer getPriorite() {
+        return priorite;
+    }
+
+    public void setPriorite(Integer priorite) {
+        this.priorite = priorite;
+    }
 }

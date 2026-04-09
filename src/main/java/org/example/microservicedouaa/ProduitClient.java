@@ -22,4 +22,9 @@ public interface ProduitClient {
     @GetMapping("/products/search")
     public List<Produit> getProductsByCategory(@RequestParam String category);
 
+
+    @GetMapping("/products/categories")
+    public List<String> getAllCategories();
+
+
 }

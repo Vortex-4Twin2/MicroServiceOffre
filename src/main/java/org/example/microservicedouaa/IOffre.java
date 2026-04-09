@@ -9,5 +9,5 @@ public interface IOffre {
     public  Offre updateOffre(int id, Offre c);
     public void deleteOffre(int id);
     public Offre createOffreProduit(Long productId, Offre offre);
-    public List<Offre> createOffreCategorie(String category, Offre offreBase);
+    public Offre createOffreCategorie(String category, Offre offreBase);
 }

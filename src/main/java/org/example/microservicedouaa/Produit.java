@@ -1,5 +1,7 @@
 package org.example.microservicedouaa;
 
+import jakarta.persistence.Column;
+
 public class Produit {
 
     private Long id;
@@ -8,17 +10,20 @@ public class Produit {
     private Double price;
     private Integer stockQuantity;
     private String category;
+    @Column(columnDefinition = "LONGTEXT")
+    private String imageUrl;
 
     public Produit() {
     }
 
-    public Produit(Long id, String name, String description, Double price, Integer stockQuantity, String category) {
-        this.id = id;
-        this.name = name;
-        this.description = description;
-        this.price = price;
-        this.stockQuantity = stockQuantity;
+    public Produit(String imageUrl, String category, Integer stockQuantity, Double price, String description, String name, Long id) {
+        this.imageUrl = imageUrl;
         this.category = category;
+        this.stockQuantity = stockQuantity;
+        this.price = price;
+        this.description = description;
+        this.name = name;
+        this.id = id;
     }
 
     public String getCategory() {
